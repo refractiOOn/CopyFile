@@ -7,7 +7,6 @@ int main()
 {
 	try
 	{
-		LPCSTR newFileName;
 		BOOL funcSuccess = CopyFileA(
 			"D:\\test.txt",
 			"D:\\Test\\test.txt",
