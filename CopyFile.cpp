@@ -15,7 +15,7 @@ int main()
 		);
 		if (!funcSuccess)
 		{
-			throw std::exception();
+			throw std::exception("Error: file is not copied");
 		}
 
 		std::vector<std::string> v;
@@ -24,13 +24,14 @@ int main()
 		file.open("D:\\Test\\Test.txt");
 		if (!file.is_open())
 		{
-			throw std::exception();
+			throw std::exception("Error: file is not opened");
 		}
 		std::string temp;
 		while (file >> temp)
 		{
 			v.push_back(temp);
 		}
+		file.close();
 
 		auto password = find(v.begin(), v.end(), "some_password");
 		if (password == v.end())
@@ -45,7 +46,7 @@ int main()
 		file.open("D:\\Test\\test.txt", std::fstream::out);
 		if (!file.is_open())
 		{
-			throw std::exception();
+			throw std::exception("Error: file is not opened");
 		}
 		for (size_t i = 0; i < v.size(); ++i)
 		{
